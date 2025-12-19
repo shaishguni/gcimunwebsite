@@ -59,7 +59,7 @@ const HeroSection = () => {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-tight">
               Empowering Leaders,
               <br />
-              <span className="bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
                 Shaping Tomorrow
               </span>
             </h1>
@@ -89,11 +89,11 @@ const HeroSection = () => {
               className="mt-12 grid grid-cols-3 gap-6 max-w-md"
             >
               <div className="text-center">
-                <div className="text-3xl font-bold text-foreground">12+</div>
+                <div className="text-3xl font-bold text-foreground">6+</div>
                 <div className="text-sm text-muted-foreground mt-1">Committees</div>
               </div>
               <div className="text-center border-x border-border px-2">
-                <div className="text-3xl font-bold text-foreground">50+</div>
+                <div className="text-3xl font-bold text-foreground">3+</div>
                 <div className="text-sm text-muted-foreground mt-1">Countries</div>
               </div>
               <div className="text-center">
