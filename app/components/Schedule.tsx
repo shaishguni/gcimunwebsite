@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, Coffee, Users, Award, Globe, Mic, PartyPopper } from "lucide-react";
+import { Calendar, Coffee, Award, Globe, Mic, PartyPopper } from "lucide-react";
 
 const conferenceSchedule = [
 	{
@@ -105,7 +105,7 @@ const Schedule = () => {
 
 								<div className="flex gap-6">
 									{/* Day indicator */}
-									<div className="flex-shrink-0 pt-1 hidden md:block">
+									<div className="shrink-0 pt-1 hidden md:block">
 										<div className={`size-16 rounded-2xl flex items-center justify-center bg-linear-to-br ${day.gradient} shadow-lg`}>
 											<Icon className="size-8 text-white" />
 										</div>
@@ -137,7 +137,7 @@ const Schedule = () => {
 														className="group rounded-xl border border-border bg-card/80 backdrop-blur-sm p-4 hover:bg-card hover:shadow-md transition-all duration-200"
 													>
 														<div className="flex flex-col md:flex-row md:items-start gap-3">
-															<div className="flex items-center gap-2 md:min-w-[160px]">
+															<div className="flex items-center gap-2 md:min-w-40">
 																<Coffee className="size-4 text-muted-foreground" />
 																<span className="text-sm font-semibold text-foreground whitespace-nowrap">
 																	{session.time}
