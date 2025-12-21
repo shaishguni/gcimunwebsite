@@ -1,33 +1,28 @@
 "use client"
 
-import { Github, Instagram, Twitter, Linkedin } from 'lucide-react';
+
 import { Badge } from "@/components/ui/badge";
-import { useState } from 'react';
-import { Check } from 'lucide-react';
+import TikTok from './icons/tiktok';    
+import Instagram from './icons/instagram';
+
+
 
 const footerLinks = {
     company: [
         { name: "About", href: "/about" },
-        { name: "Events", href: "/events" },
         { name: "Contact", href: "/contact" }
     ]
 };
 
 const socialLinks = [
-    { name: "GitHub", icon: Github, href: "https://github.com" },
-    { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
-    { name: "Twitter", icon: Twitter, href: "https://twitter.com" },
-    { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" }
+
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/gcimun.np/" },
+    { name: "TikTok", icon: TikTok, href: "https://www.tiktok.com/@gcimun2026" }
+
 ];
 
 export default function Footer() {
-    const [isSubscribed, setIsSubscribed] = useState(false);
-
-    const handleSubscribe = (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubscribed(true);
-        setTimeout(() => setIsSubscribed(false), 3000);
-    };
+    
 
     return (
         <footer className="w-full bg-black border-gray-200">
@@ -52,7 +47,7 @@ export default function Footer() {
                                         rel="noopener noreferrer"
                                         className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"
                                     >
-                                        <social.icon className="w-5 h-5" />
+                                        <social.icon />
                                     </a>
                                 ))}
                             </div>
