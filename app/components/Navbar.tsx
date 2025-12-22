@@ -77,9 +77,7 @@ const Navbar = () => {
                                     width={300}
                                 />
                             </div>
-                            <span className="text-3xl font-bold bg-linear-to-r from-cyan-600 to-blue-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                              GCI MUN
-                            </span>
+                           
                             
                         </Link>
                     </motion.div>
