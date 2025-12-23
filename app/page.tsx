@@ -1,10 +1,13 @@
 // import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
-import About from "./components/About";
+// import About from "./components/About";
 // import Committees from "./components/Committees";
 // import MeetTheTeam from "./components/MeetTheTeam";
-import Schedule from "./components/Schedule";
+// import Schedule from "./components/Schedule";
+import LearnMore from "./components/learn";
+
 import Sponsors from "./components/Sponsors";
+
 import Secretariat from "./components/secretariat";
 // import Footer from "./components/Footer";
 
@@ -16,6 +19,7 @@ export default function Home() {
       {/* <Committees /> */}
       {/* <MeetTheTeam /> */}
       <Secretariat />
+      <LearnMore />
       {/* <Schedule /> */}
       <Sponsors />
     </div>

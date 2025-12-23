@@ -28,26 +28,23 @@ const HeroSection = () => {
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 lg:py-32">
         <div className="flex flex-col items-center text-center">
-          {/* Main Content */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="space-y-8 max-w-4xl"
           >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2  mt-12  rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-xs uppercase tracking-[0.3em] text-blue-100/90">
-              Global Leadership & Diplomacy
-            </div>
+            
 
-            {/* Title */}
+
             <h1
               className={`${eb.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight`}
             >
               GCI MUN 2026
             </h1>
 
-            {/* Event Details - Cleaner mobile layout */}
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-blue-100/90 text-sm sm:text-base">
               <div className="flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-blue-200" />
