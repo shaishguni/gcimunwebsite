@@ -180,7 +180,7 @@ const MeetTheTeam: React.FC = () => {
                       className="flex size-9 items-center justify-center rounded-lg border border-border bg-background/50 hover:bg-accent transition-colors"
                       aria-label={`LinkedIn profile of ${member.name}`}
                     >
-                      <Linkedin className="size-4" />
+                      {/* <Linkedin className="size-4" /> */}
                     </a>
                   )}
                 </div>

@@ -29,7 +29,7 @@ const Navbar = () => {
         { name: "Committees", href: "/committees" },
         { name: "Secretariat", href: "/secretariat" },
         { name: "Schedule", href: "/schedule" },
-        { name: "Sponsors", href: "/sponsors" },
+        { name: "Sponsors", href: "/#sponsors" },
     ];
 
     return (

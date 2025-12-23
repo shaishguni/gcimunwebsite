@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
-        <main className="min-h-screen  mx-auto max-w-7xl px-4 pb-10 pt-20 sm:px-6 lg:px-8">
+        <main className="min-h-screen  ">
           {children}
         </main>
         <Footer />
