@@ -9,7 +9,7 @@ import Sponsors from "./components/Sponsors";
 
 export default function Home() {
   return (
-    <div >
+    <div className=" w-full h-full flex-col justify-between items-start" >
 
       <HeroSection />
       <About />
