@@ -1,5 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
+import { Poppins } from "next/font/google";
+
+const font = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-geist-sans",
+});
+
 
 interface LearnMoreProps {
   image: string;
@@ -23,13 +31,13 @@ const links: LearnMoreProps[] = [
     title: 'Registration',
     link: '/registration',
   },
-  
+
 ];
 
 
 const LearnMore = () => {
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className={`${font.variable} py-16 px-4 `}>
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">Learn More</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -48,7 +56,7 @@ const LearnMore = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors flex items-center justify-center">
-                  <h3 className="text-white text-2xl font-bold">{item.title}</h3>
+                  <h3 className={`text-white text-3xl ${font.className}`}>{item.title}</h3>
                 </div>
               </div>
             </a>
