@@ -65,6 +65,7 @@ const supportHighlights = [
 const highlightIcons = [
     (
         <svg
+            key="grid"
             className="h-6 w-6"
             viewBox="0 0 24 24"
             fill="none"
@@ -80,6 +81,7 @@ const highlightIcons = [
     ),
     (
         <svg
+            key="clock"
             className="h-6 w-6"
             viewBox="0 0 24 24"
             fill="none"
@@ -94,6 +96,7 @@ const highlightIcons = [
     ),
     (
         <svg
+            key="users"
             className="h-6 w-6"
             viewBox="0 0 24 24"
             fill="none"
@@ -164,7 +167,7 @@ export default function RegistrationPage() {
                                         key={highlight.title}
                                         className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-indigo-200"
                                     >
-                                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">
+                                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">
                                             {highlightIcons[index]}
                                         </div>
                                         <div className="space-y-1">
