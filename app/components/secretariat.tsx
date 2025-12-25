@@ -9,10 +9,7 @@ const font = Inter({ subsets: ["latin"], weight: ["400", "700"], display: "swap"
 
 const Secretariat = () => {
   return (
-    <section className="relative  overflow-hidden">
-      {/* Decorative gradient blobs */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
+    <section className="relative   w-full flex space-x-6 items-center  justify-between overflow-hidden">
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 md:py-28">
         <div className="grid gap-10 md:grid-cols-2 items-center">
@@ -33,15 +30,15 @@ const Secretariat = () => {
             viewport={{ once: true }}
             className="flex flex-col items-center justify-center"
           >
-            <div className="flex w-full max-w-sm flex-col items-center gap-3 px-4">
+            <div className="flex w-full max-w-sm mb-60 flex-col items-center gap-3 px-4">
                 <div className="relative rounded-2xl border border-border/50 bg-card shadow-2xl overflow-hidden ring-1 ring-black/5 w-full">
-                <div className="absolute inset-0 " />
+                <div className="absolute inset-0  " />
                 <Image
                   src="/photos/secretariat.jpg"
                   alt="Secretariat"
-                  width={1000}
-                  height={1000}
-                  className="relative w-full h-auto rounded-lg object-cover"
+                  width={2000}
+                  height={2000}
+                  className="relative w-full h-auto rounded-lg  object-cover"
                 />
                 </div>
 
@@ -50,13 +47,13 @@ const Secretariat = () => {
                 <p className="text-xs tracking-[0.25em] text-muted-foreground uppercase">Secretary-General of GCI MUN VII</p>
               </div>
 
-              <div className="h-px w-16 bg-slate-200" />
+              <div className="h-px w-16  bg-slate-200" />
 
-              <blockquote className={`${font.className} text-center text-sm text-muted-foreground italic leading-relaxed`}>
+              <blockquote className={`${font.className} text-center text-xl text-muted-foreground italic leading-relaxed`}>
                 &ldquo;The structure of world peace cannot be the work of one man, or one party, or one nation. It must be a peace which rests on the cooperative effort of the whole world.&rdquo;
               </blockquote>
 
-              <p className={`${font.className} text-xs font-medium uppercase tracking-[0.2em] text-slate-500`}>&mdash; Franklin D. Roosevelt, 1945</p>
+              <p className={`${font.className} text-xs font-medium uppercase tracking-[0.2em] text-blue-600`}>&mdash; Franklin D. Roosevelt, 1945</p>
             </div>
           </motion.div>
         </div>
