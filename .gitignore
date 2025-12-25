@@ -43,3 +43,4 @@ next-env.d.ts
 /generwated/prisma
 
 .env
+public/secretariat

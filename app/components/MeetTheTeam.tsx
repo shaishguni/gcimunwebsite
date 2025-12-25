@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, User } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 interface TeamMember {
   id: number;
@@ -11,10 +12,12 @@ interface TeamMember {
   committee?: string;
   image: string;
   bio: string;
-  linkedin?: string;
+  instagram?: string;
   email?: string;
   gradient: string;
 }
+
+
 
 const MeetTheTeam: React.FC = () => {
   const teamMembers: TeamMember[] = [
@@ -172,15 +175,15 @@ const MeetTheTeam: React.FC = () => {
                       <Mail className="size-4" />
                     </a>
                   )}
-                  {member.linkedin && (
+                  {member.instagram && (
                     <a
-                      href={member.linkedin}
+                      href={member.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex size-9 items-center justify-center rounded-lg border border-border bg-background/50 hover:bg-accent transition-colors"
-                      aria-label={`LinkedIn profile of ${member.name}`}
+                      aria-label={`Instagram profile of ${member.name}`}
                     >
-                      {/* <Linkedin className="size-4" /> */}
+                      <Instagram className="size-4" />
                     </a>
                   )}
                 </div>

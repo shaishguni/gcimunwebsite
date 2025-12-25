@@ -5,6 +5,8 @@ import Letter from "./letter"
 import { Inter } from 'next/font/google'
 import { motion } from "framer-motion"
 
+
+
 const font = Inter({ subsets: ["latin"], weight: ["400", "700"], display: "swap", variable: '--font-sans' })
 
 const Secretariat = () => {
