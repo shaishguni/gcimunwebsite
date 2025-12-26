@@ -1,42 +1,53 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
-import { Globe, Users, Target } from "lucide-react";
+import { Compass, Globe2, Target, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
-const highlights = [
+const pillars = [
   {
-    text: "Experience authentic diplomatic negotiations and debate on pressing global issues",
-    gradient: "from-blue-500 to-cyan-500",
-    bgGradient: "from-blue-500/10 to-cyan-500/10",
+    title: "Inclusivity & Growth",
+    description:
+      "We welcome delegates at every experience level so that first-time participants and seasoned chairs learn side by side.",
+    icon: Users,
+    iconColor: "text-blue-900",
+    iconBg: "bg-blue-50",
   },
   {
-    text: "Develop critical skills in public speaking, research, and international relations",
-    gradient: "from-purple-500 to-pink-500",
-    bgGradient: "from-purple-500/10 to-pink-500/10",
+    title: "Diplomatic Excellence",
+    description:
+      "Seven dynamic committees including UNSC, UNHCR, UNICEF, SPECPOL, ICJ, African Union, and International Press tackle urgent global challenges.",
+    icon: Compass,
+    iconColor: "text-blue-900",
+    iconBg: "bg-blue-50",
   },
   {
-    text: "Network with passionate delegates from across the region and build lasting connections",
-    gradient: "from-amber-500 to-orange-500",
-    bgGradient: "from-amber-500/10 to-orange-500/10",
+    title: "Theme-Driven Dialogue",
+    description:
+      "Our 2026 theme, Growing Challenge in Political Stability, examines unrest from Gen Z movements in Asia to conflicts in Ukraine, Palestine, and South Asia.",
+    icon: Globe2,
+    iconColor: "text-blue-900",
+    iconBg: "bg-blue-50",
   },
+];
+
+const approachPoints = [
+  "Policy analysis and resolution drafting",
+  "Cross-cultural collaboration",
+  "Public speaking and negotiation",
+  "Consensus-based problem solving",
 ];
 
 const About = () => {
   return (
-    <section className="relative bg-linear-to-br from-white via-blue-50/30 to-purple-50/30 overflow-hidden">
-      {/* Decorative gradient blobs */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl" />
-      
+    <section className="relative bg-slate-50 border-y border-slate-200">
       <div className="relative mx-auto max-w-7xl px-4 py-20 md:py-28">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-3 text-xs font-semibold uppercase tracking-widest bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-blue-700"
         >
           About GCI MUN
         </motion.div>
@@ -45,60 +56,153 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-extrabold text-foreground mb-3"
+          className="text-3xl md:text-5xl font-extrabold text-blue-900 mb-3"
         >
           Where Diplomacy Meets{" "}
-          <span className="bg-linear-to-r from-blue-600 via-cyan-600 to-indigo-600 bg-clip-text text-transparent">
-            Excellence
-          </span>
+          <span className="text-slate-700">Global Citizenship</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mb-10 max-w-2xl text-sm md:text-base text-muted-foreground"
+          className="mb-10 max-w-2xl text-sm md:text-base text-slate-600"
         >
-          GCI Model United Nations brings together the brightest minds to engage in meaningful dialogue, 
-          tackle global challenges, and shape the leaders of tomorrow.
+          Global College International Model United Nations (GCI MUN) brings together students from diverse
+          backgrounds to engage in diplomacy, debate, and collaborative problem solving. Since its start in 2017 as
+          UGCI MUN and its independent evolution after 2019, the conference has grown into one of Nepal&apos;s most
+          respected MUN platforms, now entering its seventh edition in 2026.
         </motion.p>
         <div className="grid gap-10 md:grid-cols-2 items-center">
-          <ul className="space-y-6">
-            {highlights.map((item, index) => (
-              <motion.li
-                key={item.text}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-3 group"
-              >
-                <div className={`flex size-10 items-center justify-center rounded-xl bg-linear-to-br ${item.bgGradient} border border-white/20 shadow-sm mt-0.5 group-hover:scale-110 group-hover:shadow-md transition-all duration-300`}>
-                  <div className={`bg-linear-to-br ${item.gradient} bg-clip-text text-transparent`}>
-                    {index === 0 && <Globe className="size-5" style={{ color: 'rgb(59 130 246)' }} />}
-                    {index === 1 && <Target className="size-5" style={{ color: 'rgb(168 85 247)' }} />}
-                    {index === 2 && <Users className="size-5" style={{ color: 'rgb(251 146 60)' }} />}
-                  </div>
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-lg md:text-xl font-semibold text-blue-900 mb-2">
+                Our Mission
+              </h3>
+              <p className="text-sm md:text-base text-slate-600">
+                GCI MUN fosters leadership, critical thinking, and global awareness for learners from Grade 8 through the
+                undergraduate level. Structured committee sessions, inclusive networking, and high-quality training equip
+                every delegate to explore complex international issues and propose actionable solutions.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
+              <h3 className="text-lg md:text-xl font-semibold text-blue-900">
+                What We Stand For
+              </h3>
+              <div className="space-y-4">
+                {pillars.map((pillar, index) => {
+                  const Icon = pillar.icon;
+                  return (
+                    <motion.div
+                      key={pillar.title}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 + index * 0.08 }}
+                      viewport={{ once: true }}
+                      className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-slate-300 hover:shadow-md"
+                    >
+                      <div className="flex items-start gap-3">
+                        <span className={`flex size-10 items-center justify-center rounded-xl ${pillar.iconBg} ${pillar.iconColor}`}>
+                          <Icon className="size-5" />
+                        </span>
+                        <div>
+                          <h4 className="text-base font-semibold text-blue-900">
+                            {pillar.title}
+                          </h4>
+                          <p className="mt-1 text-sm text-slate-600">
+                            {pillar.description}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <div className="flex items-start gap-3">
+                <span className="flex size-10 items-center justify-center rounded-xl bg-blue-100 text-blue-900">
+                  <Target className="size-5" />
+                </span>
+                <div>
+                  <h3 className="text-lg font-semibold text-blue-900">
+                    Our Approach
+                  </h3>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Delegates build confidence and diplomacy through hands-on experiences:
+                  </p>
+                  <ul className="mt-3 grid gap-2 text-sm text-blue-900 md:grid-cols-2">
+                    {approachPoints.map((point) => (
+                      <li key={point} className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-blue-700" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <span className="text-base md:text-lg leading-relaxed text-foreground">{item.text}</span>
-              </motion.li>
-            ))}
-            <motion.li
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <h3 className="text-lg font-semibold text-blue-900">
+                A Legacy of Youth Diplomacy
+              </h3>
+              <p className="mt-2 text-sm text-slate-600">
+                From the landmark fifth edition in 2024 to the upcoming seventh edition in 2026, GCI MUN continues to
+                inspire future leaders. An experienced Executive Board from across Asia and vibrant socials featuring
+                renowned artists transform the conference into a celebration of youth diplomacy.
+              </p>
+            </motion.div>
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
               viewport={{ once: true }}
-              className="pt-2"
+              className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-600 shadow-sm"
+            >
+              <p>
+                Guided by our motto, &ldquo;न स्थैर्यं शक्त्या, स्थैर्यं न्यायेन।&rdquo; — Stability is not achieved by power, but
+                by justice — we cultivate respectful, professional, and intellectually engaging committee rooms where
+                justice-driven dialogue takes center stage.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
+              viewport={{ once: true }}
             >
               <a
                 href="/committees"
-                className="inline-flex items-center gap-2 text-sm font-semibold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-purple-700 transition-all"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-blue-900 hover:text-blue-700 transition-all"
               >
                 Explore Our Committees
-                <span aria-hidden className="text-blue-600">→</span>
+                <span aria-hidden className="text-blue-700">→</span>
               </a>
-            </motion.li>
-          </ul>
+            </motion.div>
+          </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -106,15 +210,13 @@ const About = () => {
             viewport={{ once: true }}
             className="relative flex items-center justify-center"
           >
-            <div className="absolute -inset-4 bg-linear-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-2xl" />
-            <div className="relative rounded-2xl border border-border/50 bg-card shadow-2xl overflow-hidden ring-1 ring-black/5">
-              <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-purple-500/10 to-transparent" />
+            <div className="relative rounded-2xl border border-slate-200 bg-white shadow-2xl overflow-hidden">
               <Image
                 src="/assets/about.jpg"
                 alt="GCI MUN Conference"
                 width={720}
                 height={460}
-                className="relative h-auto w-full object-cover"
+                className="h-auto w-full object-cover"
                 priority
               />
             </div>
