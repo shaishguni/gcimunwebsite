@@ -3,9 +3,12 @@ import MeetTheTeam from '../components/MeetTheTeam'
 
 const page = () => {
   return (
-    <div>
+
+       <div>
         <MeetTheTeam />
     </div>
+
+   
   )
 }
 

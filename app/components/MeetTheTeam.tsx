@@ -2,89 +2,18 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, User } from "lucide-react";
+import { Mail,  } from "lucide-react";
 import { Instagram } from "lucide-react";
+import Image from "next/image";
+import teamMembers from "./team";
 
-interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  committee?: string;
-  image: string;
-  bio: string;
-  instagram?: string;
-  email?: string;
-  gradient: string;
-}
+
 
 
 
 const MeetTheTeam: React.FC = () => {
-  const teamMembers: TeamMember[] = [
-    {
-      id: 1,
-      name: "Secretary General",
-      role: "Chief Executive Officer",
-      committee: "Executive Board",
-      image: "/images/sg.jpg",
-      bio: "Leading the conference with vision and dedication to diplomatic excellence.",
+  
 
-      email: "sg@gcimun.org",
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      id: 2,
-      name: "Director General",
-      role: "Operations & Logistics",
-      committee: "Executive Board",
-      image: "/images/dg.jpg",
-      bio: "Ensuring seamless execution and world-class conference experience.",
-
-      email: "dg@gmail.com",
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      id: 3,
-      name: "Under Secretary General",
-      role: "Delegate Affairs",
-      committee: "Executive Board",
-      image: "/images/usg.jpg",
-      bio: "Dedicated to creating an enriching experience for all delegates.",
-
-      email: "usg@gmail.com",
-      gradient: "from-amber-500 to-orange-500",
-    },
-    {
-      id: 4,
-      name: "UNSC Chair",
-      role: "Committee Chairperson",
-      committee: "UNSC",
-      image: "/images/chair1.jpg",
-      bio: "Moderating critical discussions on international peace and security.",
-      email: "unsc@gmail.com",
-      gradient: "from-indigo-500 to-blue-500",
-    },
-    {
-      id: 5,
-      name: "UNGA Chair",
-      role: "Committee Chairperson",
-      committee: "UNGA",
-      image: "/images/chair2.jpg",
-      bio: "Facilitating meaningful dialogue on global matters.",
-      email: "unga@gmail.com",
-      gradient: "from-green-500 to-emerald-500",
-    },
-    {
-      id: 6,
-      name: "UNHRC Chair",
-      role: "Committee Chairperson",
-      committee: "UNHRC",
-      image: "/images/chair3.jpg",
-      bio: "Championing human rights and fundamental freedoms.",
-      email: "unhrc@gmail.com",
-      gradient: "from-rose-500 to-red-500",
-    },
-  ];
 
   return (
     <section className="relative bg-linear-to-br from-white via-blue-50/20 to-purple-50/20 overflow-hidden">
@@ -135,14 +64,14 @@ const MeetTheTeam: React.FC = () => {
               <div className="relative mb-4 flex justify-center">
                 <div className={`relative size-24 rounded-full overflow-hidden ring-4 ring-offset-2 ring-offset-card bg-linear-to-br ${member.gradient} p-0.5`}>
                   <div className="size-full rounded-full overflow-hidden bg-card flex items-center justify-center">
-                    <User className="size-12 text-muted-foreground" />
+                    {/* <User className="size-12 text-muted-foreground" /> */}
                     {/* Replace User icon with actual image when available */}
-                    {/* <Image
+                    <Image
                       src={member.image}
                       alt={member.name}
                       fill
                       className="object-cover"
-                    /> */}
+                    />
                   </div>
                 </div>
               </div>
@@ -155,11 +84,7 @@ const MeetTheTeam: React.FC = () => {
                 <p className="text-sm font-semibold text-muted-foreground mb-1">
                   {member.role}
                 </p>
-                {member.committee && (
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium bg-linear-to-r ${member.gradient} text-white mb-3`}>
-                    {member.committee}
-                  </div>
-                )}
+                
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4 mt-3">
                   {member.bio}
                 </p>
