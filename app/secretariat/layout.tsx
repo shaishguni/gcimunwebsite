@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html  suppressHydrationWarning lang="en" className="scroll-smooth">
-      <body className={`${font.variable} antialiased`}>
+      <body className={`${font.variable} antialiased`} suppressHydrationWarning>
 
         <main className="min-h-screen  ">
           {children}

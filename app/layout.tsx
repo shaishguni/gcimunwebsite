@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${font.variable} antialiased`}>
+      <body className={`${font.variable} antialiased`} suppressHydrationWarning>
         <Navbar />
         <main className="min-h-screen  ">
           {children}
