@@ -15,7 +15,7 @@ const registrationOptions = [
     {
         id: "group",
         title: "Group / School Registration",
-        price: "NRs 3,300 (minimum 10 delegates)",
+        price: "NRs 3,500 (minimum 10 delegates)",
         description:
             "Group packages include priority seating for all delegates and a discount on additional delegates.",
         link: "https://forms.gle/YOUR_GROUP_FORM",

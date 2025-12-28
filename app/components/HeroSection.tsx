@@ -87,14 +87,14 @@ const HeroSection = () => {
               size="lg"
               className="w-full sm:w-auto px-8 text-base bg-yellow-300 text-black font-medium hover:bg-yellow-400 shadow-lg transition-all"
             >
-              <Link href="/register">Register Now</Link>
+              <Link href="/registration">Register Now</Link>
             </Button>
             <Button
               size="lg"
               className="w-full sm:w-auto px-8 text-base bg-amber-500 text-black font-medium hover:bg-amber-600 shadow-lg transition-all"
 
             >
-              Learn More
+              <Link href="/about">Learn More</Link>
             </Button>
           </motion.div>
         </div>
