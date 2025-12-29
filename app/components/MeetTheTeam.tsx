@@ -2,14 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Instagram } from "lucide-react";
 import Image from "next/image";
 import teamMembers from "./team";
 
 const MeetTheTeam: React.FC = () => {
   return (
     <section className="relative overflow-hidden">
-      <div className="relative mx-auto max-w-6xl px-6 py-20 sm:px-8  mt-4 lg:px-10">
+      <div className="relative mx-auto max-w-6xl px-6 py-20 sm:px-8 mt-4 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,8 +79,6 @@ const MeetTheTeam: React.FC = () => {
                       {member.bio}
                     </p>
                   </div>
-
-                     
                 </div>
               </div>
             </motion.article>

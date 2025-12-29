@@ -72,86 +72,85 @@ const committees = [
 
 const Committees = () => {
 	return (
-		<section id="committees" className="relative bg-linear-to-br from-white via-blue-50/20 to-purple-50/20 overflow-hidden">
-			{/* Decorative blobs */}
-			<div className="absolute top-0 left-0 w-96 h-96 bg-blue-300/10 rounded-full blur-3xl" />
-			<div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-300/10 rounded-full blur-3xl" />
-			
-			<div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
+		<section id="committees" className="relative overflow-hidden">
+			<div className="relative mx-auto max-w-6xl px-6 py-20 sm:px-8 mt-4 lg:px-10">
 				<motion.div
-					initial={{ opacity: 0, y: 20 }}
+					initial={{ opacity: 0, y: 24 }}
 					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
 					transition={{ duration: 0.6 }}
-					viewport={{ once: true }}
-					className="mb-3 text-xs font-semibold uppercase tracking-widest bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+					className="text-center md:text-left"
 				>
-					Our Committees
-				</motion.div>
-				<motion.h2
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6, delay: 0.1 }}
-					viewport={{ once: true }}
-					className="text-3xl md:text-5xl font-bold text-foreground"
-				>
-					Engage in{" "}
-					<span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-						Global Dialogue
+					<span className="text-[0.7rem] font-semibold uppercase tracking-[0.6em] text-slate-500">
+						Our Committees
 					</span>
-				</motion.h2>
-				<motion.p
-					initial={{ opacity: 0, y: 20 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6, delay: 0.2 }}
-					viewport={{ once: true }}
-					className="mt-3 text-muted-foreground max-w-2xl"
+					<h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-5xl">
+						Develop Diplomats of Tomorrow
+					</h2>
+					<p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-slate-600 md:ml-0 md:text-base">
+						Explore a curated set of councils, courts, and press teams designed to sharpen debate,
+						negotiation, and storytelling. Each committee pairs real-world urgency with dynamic
+						learning inside the GCIMUN experience.
+					</p>
+				</motion.div>
+
+				<motion.div
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					viewport={{ once: true, margin: "-80px" }}
+					transition={{ delay: 0.1, duration: 0.6 }}
+					className="mt-16 grid gap-10 lg:grid-cols-2"
 				>
-					Choose from our diverse range of committees, each tackling critical global issues 
-					and providing unique opportunities for diplomatic engagement.
-				</motion.p>
-				<div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-					{committees.map((committee, i) => {
+					{committees.map((committee, index) => {
 						const Icon = committee.icon;
 						return (
-							<motion.div
+							<motion.article
 								key={committee.title}
-								initial={{ opacity: 0, y: 16 }}
+								initial={{ opacity: 0, y: 40 }}
 								whileInView={{ opacity: 1, y: 0 }}
-								viewport={{ once: true, margin: "-100px" }}
-								transition={{ duration: 0.5, delay: i * 0.08 }}
-								whileHover={{ y: -6, scale: 1.02 }}
-								className="group relative rounded-2xl border border-border/50 bg-card p-6 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
+								viewport={{ once: true, margin: "-40px" }}
+								transition={{ duration: 0.55, delay: index * 0.05 }}
+								className="group relative overflow-hidden rounded-3xl bg-white/95 shadow-lg ring-1 ring-slate-200 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
 							>
-								{/* Gradient background blob */}
 								<div
-									className={`pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full bg-linear-to-br ${committee.bgGradient} opacity-50 group-hover:opacity-70 transition-opacity duration-300`}
+									className={`pointer-events-none absolute inset-x-0 top-0 h-1 bg-linear-to-r ${committee.gradient}`}
 								/>
-								
-								{/* Icon */}
-								<div className={`relative flex size-12 items-center justify-center rounded-xl bg-linear-to-br ${committee.gradient} shadow-lg mb-4`}>
-									<Icon className="size-6 text-white" />
-								</div>
 
-								{/* Content */}
-								<div className="relative">
-									<h3 className="text-xl font-bold text-foreground mb-1">
-										{committee.title}
-									</h3>
-									<p className="text-xs font-medium text-muted-foreground mb-3 uppercase tracking-wide">
-										{committee.fullName}
-									</p>
-									<p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-										{committee.desc}
-									</p>
-									<div className="inline-flex items-center gap-2 rounded-lg border border-border/50 bg-background/50 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur-sm">
-										<span className="size-1.5 rounded-full bg-amber-500 animate-pulse" />
-										Agenda: {committee.agenda}
+								<div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[minmax(0,220px),1fr] lg:items-center">
+									<div className="relative overflow-hidden rounded-2xl px-6 py-10">
+										<div
+											className={`absolute inset-0 bg-linear-to-br ${committee.gradient} opacity-10 transition-opacity duration-500 group-hover:opacity-20`}
+										/>
+										<div className="relative flex flex-col items-start gap-4">
+											<span className="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-700 shadow-sm">
+												{committee.title}
+											</span>
+											<div className="flex size-16 items-center justify-center rounded-2xl bg-white/80 shadow-md backdrop-blur">
+												<Icon className="size-7 text-slate-800" />
+											</div>
+										</div>
+									</div>
+
+									<div className="flex flex-col justify-between">
+										<div>
+											<h3 className="text-xl font-semibold text-slate-900">
+												{committee.fullName}
+											</h3>
+											<p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+												{committee.desc}
+											</p>
+										</div>
+
+										<div className="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-slate-600">
+											<span className="h-2 w-2 rounded-full bg-amber-500" />
+											Agenda: {committee.agenda}
+										</div>
 									</div>
 								</div>
-							</motion.div>
+							</motion.article>
 						);
 					})}
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	);
