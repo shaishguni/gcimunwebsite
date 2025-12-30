@@ -2,73 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Scale, Globe, Building2, Heart, Shield, Activity, Newspaper } from "lucide-react";
 
-const committees = [
-	{
-		title: "UNSC",
-		fullName: "United Nations Security Council",
-		desc: "Maintaining international peace and security",
-		agenda: "To be declared",
-		icon: Shield,
-		gradient: "from-blue-500 to-cyan-500",
-		bgGradient: "from-blue-50 to-cyan-50",
-	},
-	{
-		title: "UNHCR",
-		fullName: "United Nations High Commissioner for Refugees",
-		desc: "Protecting and supporting refugees and displaced persons",
-		agenda: "To be declared",
-		icon: Heart,
-		gradient: "from-rose-500 to-red-500",
-		bgGradient: "from-rose-50 to-red-50",
-	},
-	{
-		title: "SPECPOL",
-		fullName: "Special Political and Decolonization Committee",
-		desc: "Addressing decolonization and special political issues",
-		agenda: "To be declared",
-		icon: Scale,
-		gradient: "from-indigo-500 to-blue-500",
-		bgGradient: "from-indigo-50 to-blue-50",
-	},
-	{
-		title: "UNICEF",
-		fullName: "United Nations Children’s Fund",
-		desc: "Advancing children’s rights, health, and education",
-		agenda: "To be declared",
-		icon: Activity,
-		gradient: "from-teal-500 to-emerald-500",
-		bgGradient: "from-teal-50 to-emerald-50",
-	},
-	{
-		title: "AU",
-		fullName: "African Union",
-		desc: "Promoting unity and development across Africa",
-		agenda: "To be declared",
-		icon: Globe,
-		gradient: "from-yellow-500 to-orange-500",
-		bgGradient: "from-yellow-50 to-orange-50",
-	},
-	{
-		title: "ICJ",
-		fullName: "International Court of Justice",
-		desc: "Settling legal disputes between states and giving advisory opinions",
-		agenda: "To be declared",
-		icon: Building2,
-		gradient: "from-slate-600 to-slate-400",
-		bgGradient: "from-slate-50 to-slate-100",
-	},
-	{
-		title: "IP",
-		fullName: "International Press",
-		desc: "Reporting on conference proceedings and press coverage",
-		agenda: "To be declared",
-		icon: Newspaper,
-		gradient: "from-amber-500 to-orange-500",
-		bgGradient: "from-amber-50 to-orange-50",
-	},
-];
+import {committees} from "./data";
+
+
 
 const Committees = () => {
 	return (

@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import teamMembers from "./team";
+import teamMembers from "./data";
 
 const MeetTheTeam: React.FC = () => {
   return (
