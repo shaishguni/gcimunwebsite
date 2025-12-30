@@ -11,6 +11,18 @@ interface TeamMember {
   // email?: string;
   gradient: string;
 }
+interface Committee {
+  title: string;
+  fullName: string;
+  desc: string;
+  agenda: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  cover?: string;
+  logo?: string;
+  gradient: string;
+  bgGradient: string;
+}
+
 
 const teamMembers: TeamMember[] = [
   {
@@ -206,7 +218,7 @@ export default teamMembers;
 
 
 
-export const committees = [
+export const committees: Committee[] = [
 	{
 		title: "UNSC",
 		fullName: "United Nations Security Council",
