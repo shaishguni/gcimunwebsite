@@ -24,6 +24,11 @@ interface Committee {
 }
 
 
+type GalleryItem = {
+    src: string
+}
+
+
 const teamMembers: TeamMember[] = [
   {
     id: 1,
@@ -283,3 +288,12 @@ export const committees: Committee[] = [
 		bgGradient: "from-amber-50 to-orange-50",
 	},
 ];
+
+
+export const galleryItems: GalleryItem[] = [
+    {
+        src: "/learn/about.jpg",
+
+    },
+    
+]

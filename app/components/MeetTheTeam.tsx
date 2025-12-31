@@ -34,7 +34,7 @@ const MeetTheTeam: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="mt-16 grid gap-10 lg:grid-cols-2"
+          className="mt-16 grid gap-10 lg:grid-cols-3"
         >
           {teamMembers.map((member, index) => (
             <motion.article
