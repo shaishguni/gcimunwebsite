@@ -1,9 +1,6 @@
 
 import { Poppins } from "next/font/google";
 
-
-
-
 const font = Poppins({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -17,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html  suppressHydrationWarning lang="en" className="scroll-smooth">
-      <body className={`${font.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${font.variable} antialiased`}>
 
         <main className="min-h-screen  ">
           {children}
