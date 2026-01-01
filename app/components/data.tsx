@@ -311,7 +311,6 @@ export const galleryItems : GalleryItem[] = [
   { src: "/gallery/19.jpg" },
   { src: "/gallery/20.jpg" },
   { src: "/gallery/21.jpg" },
-  { src: "/gallery/22.jpg" },
 ];
 
 
