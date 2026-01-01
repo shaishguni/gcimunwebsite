@@ -5,7 +5,6 @@ import { motion, type Variants } from "framer-motion"
 import { galleryItems } from "./data"
 
 
-
 const sectionVariants = {
     hidden: { opacity: 0 },
     show: {
