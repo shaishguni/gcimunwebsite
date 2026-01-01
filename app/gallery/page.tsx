@@ -1,10 +1,10 @@
 import React from 'react'
-import Gallery from '../components/Gallery'
 
-const page = () => {
-  return (
-    <Gallery />
-  )
+import Gallery from "../components/Gallery"
+
+const GalleryPage = () => {
+
+  return <Gallery />
 }
 
-export default page
+export default GalleryPage

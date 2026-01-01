@@ -45,3 +45,4 @@ next-env.d.ts
 .env
 
 public/assets/secretariat
+public/gallery
