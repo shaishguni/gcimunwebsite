@@ -42,7 +42,7 @@ const Gallery = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
-            className="container mx-auto  pt-16 px-4 py-16"
+            className="container mx-auto  pt-24 px-4 py-16"
         >
             <motion.div variants={cardVariants} className="max-w-2xl space-y-4">
                 <h2 className="text-3xl font-semibold text-neutral-600 md:text-4xl">Conference Gallery</h2>
@@ -51,7 +51,10 @@ const Gallery = () => {
                 </p>
             </motion.div>
 
-            <motion.div variants={sectionVariants} className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <motion.div
+                variants={sectionVariants}
+                className="mt-10 flex gap-6 overflow-x-auto scroll-px-4 pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-3 [&>article]:min-w-[70%] [&>article]:flex-none sm:[&>article]:min-w-0"
+            >
                 {galleryItems.map((item) => (
                     <motion.article key={item.src} variants={cardVariants} className="group">
                         <div className="relative aspect-4/5 overflow-hidden rounded-2xl border border-white/5 bg-neutral-900/40">
@@ -60,7 +63,7 @@ const Gallery = () => {
                                 alt="Conference moment"
                                 fill
                                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                                className="object-cover transition duration-700 group-hover:scale-105"
+                                className="object-cover transition duration-700 group-hover:scale-110 hover:blur-xl"
                                 loading="lazy"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

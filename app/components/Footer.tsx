@@ -4,6 +4,7 @@
 import { Badge } from "@/components/ui/badge";
 import TikTok from './icons/tiktok';    
 import Instagram from './icons/instagram';
+import Image from "next/image";
 
 
 
@@ -25,16 +26,22 @@ export default function Footer() {
     
 
     return (
-        <footer className="w-full bg-black border-gray-200">
+        <footer className="w-full bg-neutral-900 border-gray-200">
             <div className="max-w-6xl mx-auto px-4 md:px-24 py-12">
                 {/* Main Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                     {/* Brand */}
                     <div>
                         <div className="space-y-6">
-                            <h2 className="text-2xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                                GCI MUN
-                            </h2>
+                            <div className="relative w-24 h-12 rounded-lg  flex items-center justify-center transition-colors duration-200">
+                                                            <Image
+                                                                src="/assets/logo.png"
+                                                                alt="GCI MUN Conference"
+                                                                className="object-contain"
+                                                                height={300}
+                                                                width={300}
+                                                            />
+                                                        </div>
                             <p className="text-gray-400 text-sm leading-relaxed max-w-md">
                                 Empowering the next generation of global leaders through Model United Nations.
                             </p>
@@ -45,7 +52,7 @@ export default function Footer() {
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"
+                                        className="text-gray-400  hover:text-white transition-all duration-300 hover:scale-110"
                                     >
                                         <social.icon />
                                     </a>
