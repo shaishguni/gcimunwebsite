@@ -17,7 +17,7 @@ export default function MinimalHero() {
         alt="GCI MUN 2026 background"
         fill
         priority
-        className="object-cover  blur-out-xl blur-in-3xl  brightness-[0.35] contrast-125 sharpness-105"
+        className="object-cover    brightness-[0.35] contrast-125 sharpness-105"
         quality={85}
       />
 
@@ -27,12 +27,13 @@ export default function MinimalHero() {
       {/* Center content */}
       <div className="relative z-10 text-center px-6">
         <h1
-          className={`${poppins.className} text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] 
-                     font-bold tracking-tight leading-none text-white
-                     drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]`}
+          className={`${poppins.className} flex flex-wrap items-baseline justify-center gap-6 
+               text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]`}
         >
-          GCI MUN
-          <span className="block text-7xl sm:text-9xl md:text-[11rem] lg:text-[13rem] text-blue-300/90 mt-2">
+          <span className="text-6xl sm:text-9xl md:text-9xl lg:text-[10rem] font-bold tracking-tight leading-none">
+            GCI MUN
+          </span>
+          <span className="text-6xl sm:text-9xl md:text-[10rem] lg:text-[10rem] font-bold tracking-tight leading-none text-blue-300/90">
             2026
           </span>
         </h1>
