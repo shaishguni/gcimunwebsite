@@ -1,67 +1,99 @@
 "use client";
 
-import Image from "next/image"
-import Letter from "./letter"
-import { Inter } from 'next/font/google'
-import { motion } from "framer-motion"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { EB_Garamond, Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 
+const poopins = Poppins({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
+import Letter from "./letter";
 
+const eb = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-eb",
+  weight: ["400", "500", "600", "700"],
+});
 
-const font = Inter({ subsets: ["latin"], weight: ["400", "700"], display: "swap", variable: '--font-sans' })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+});
 
 const Secretariat = () => {
   return (
-    <section className="relative   w-full flex space-x-6 items-center  justify-between overflow-hidden">
-
-      <div className="relative mx-auto max-w-7xl px-4 py-20 md:py-28">
-        <div className="grid gap-10 md:grid-cols-2 items-center">
+    <section className={`${eb.variable} ${inter.variable} relative w-full bg-linear-to-b from-slate-50 to-white py-20 md:py-32 overflow-hidden`}>
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          {/* Left - Letter Component */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="flex-1"
+            className="relative"
           >
             <Letter />
           </motion.div>
 
+          {/* Right - Photo + Quote */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center"
           >
-            <div className="flex w-full max-w-sm mb-60 flex-col items-center gap-3 px-4">
-                <div className="relative rounded-2xl border border-border/50 bg-card shadow-2xl overflow-hidden ring-1 ring-black/5 w-full">
-                <div className="absolute inset-0  " />
+            <div className="w-full max-w-md space-y-8">
+              {/* Photo with modern glassmorphic frame */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/15 border border-white/60 bg-white/40 backdrop-blur-xl">
+                <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent z-10" />
                 <Image
                   src="/photos/secretariat.jpg"
-                  alt="Secretariat"
-                  width={2000}
-                  height={2000}
-                  className="relative w-full h-auto rounded-lg  object-cover"
+                  alt="Raunak Shrestha - Secretary-General of GCI MUN VII"
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
+                  priority
                 />
-                </div>
-
-              <div className={`${font.className} text-center`}>
-                <p className="text-sm font-semibold text-slate-900">Raunak Shrestha</p>
-                <p className="text-xs tracking-[0.25em] text-muted-foreground uppercase">Secretary-General of GCI MUN VII</p>
               </div>
 
-              <div className="h-px w-16  bg-slate-200" />
+              {/* Name & Title */}
+              <div className={`${inter.className} text-center space-y-2`}>
+                <h3 className="text-2xl md:text-3xl font-semibold text-slate-900 tracking-tight">
+                  Raunak Shrestha
+                </h3>
+                <p className="text-sm md:text-base font-medium uppercase tracking-[0.35em] text-blue-600/90">
+                  Secretary-General
+                  <br />
+                  GCI MUN VII
+                </p>
+              </div>
 
-              <blockquote className={`${font.className} text-center text-xl text-muted-foreground italic leading-relaxed`}>
-                &ldquo;The structure of world peace cannot be the work of one man, or one party, or one nation. It must be a peace which rests on the cooperative effort of the whole world.&rdquo;
-              </blockquote>
+              {/* Subtle divider */}
+              <div className="flex justify-center">
+                <div className="h-px w-20 bg-linear-to-r from-transparent via-slate-300 to-transparent" />
+              </div>
 
-              <p className={`${font.className} text-xs font-medium uppercase tracking-[0.2em] text-blue-600`}>&mdash; Franklin D. Roosevelt, 1945</p>
+              {/* Quote */}
+              <div className={`${poopins.className} space-y-4 text-center`}>
+                <blockquote className="text-xl md:text-2xl font-medium italic text-slate-700 leading-relaxed tracking-wide">
+                  &ldquo;The structure of world peace cannot be the work of one man, or one party, or one nation. It must be a peace which rests on the cooperative effort of the whole world.&rdquo;
+                </blockquote>
+
+                <p className="text-sm font-medium uppercase tracking-wider text-blue-700/80">
+                  — Franklin D. Roosevelt, 1945
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Secretariat
+export default Secretariat;

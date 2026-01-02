@@ -1,6 +1,20 @@
+import { EB_Garamond } from "next/font/google";
+import { Poppins } from "next/font/google";
+const eb = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-eb",
+  weight: ["400", "500", "600", "700"],
+});
+const poppins = Poppins({
+    weight: ["400", "700"],
+    subsets: ["latin"],
+    variable: "--font-poppins",
+});
+
+
 export default function Letter() {
     return (
-        <section className="max-w-3xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-12 text-slate-500">
+        <section className={`${eb.variable} ${poppins.variable} max-w-3xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-12 text-slate-500`}>
             
             <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">
                 Distinguished Readers,

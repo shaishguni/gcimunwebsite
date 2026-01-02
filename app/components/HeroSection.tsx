@@ -1,66 +1,48 @@
 "use client";
-
-
-
-import {  Calendar } from "lucide-react";
-import { motion } from "framer-motion";
-// import Link from "next/link";
-// import { Button } from "@/components/ui/button";
-// import { EB_Garamond } from "next/font/google";
-import { Poppins } from "next/font/google";
 import Image from "next/image";
 
-const eb = Poppins({
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  weight: ["400", "700"],
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
 });
 
-const HeroSection = () => {
-
-
+export default function MinimalHero() {
   return (
-    <section className="relative bg-[#030b35] py-56 justify-between items-center  bg-blend-darken text-white overflow-visible">
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:py-32">
-        <div className="flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="space-y-8 max-w-4xl"
-            >
-            <h1
-              className={`${eb.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight`}
-            >
-              GCI MUN 2026
-            </h1>
-            <div className="relative mx-auto h-56 w-full max-w-3xl sm:h-72 md:h-96">
-              <Image
-              src="/assets/herosection.jpg"
-              alt="GCI MUN 2026 Logo"
-              fill
-              priority
-              className="rounded-lg object-cover"
-              />
-            </div>
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+      {/* Full-screen background image with dark overlay */}
+      <Image
+        src="/assets/herosection.jpg" // ← replace with your actual image path
+        alt="GCI MUN 2026 background"
+        fill
+        priority
+        className="object-cover  blur-out-xl blur-in-3xl  brightness-[0.35] contrast-125 sharpness-105"
+        quality={85}
+      />
 
+      {/* Very subtle dark gradient overlay */}
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/40 to-black/70" />
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-blue-100/90 text-sm sm:text-base">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4 text-blue-200" />
-                <span>19-21, February 2026</span>
-              </div>
-             
-            </div>
-          </motion.div>
+      {/* Center content */}
+      <div className="relative z-10 text-center px-6">
+        <h1
+          className={`${poppins.className} text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] 
+                     font-bold tracking-tight leading-none text-white
+                     drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]`}
+        >
+          GCI MUN
+          <span className="block text-7xl sm:text-9xl md:text-[11rem] lg:text-[13rem] text-blue-300/90 mt-2">
+            2026
+          </span>
+        </h1>
 
-       
-         
+        <div className="mt-10 sm:mt-16">
+          <p className="text-2xl sm:text-4xl md:text-5xl text-white/90 font-light tracking-wider">
+            19 – 21 February 2026
+          </p>
         </div>
-
-
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}
