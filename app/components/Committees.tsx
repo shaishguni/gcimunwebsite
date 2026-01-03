@@ -58,7 +58,8 @@ const Committees = () => {
 											fill
 											className="object-cover transition-transform duration-700 group-hover:scale-105"
 										/>
-										<div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition" />
+										<div className="absolute inset-0 bg-gradient-to-br from-blue-900/55 via-blue-800/45 to-slate-900/55 transition-opacity group-hover:opacity-90" />
+
 
 										<div className="relative z-10 flex h-full items-end p-5">
 											<div className="flex size-14 items-center justify-center rounded-2xl bg-white/90 shadow-md backdrop-blur">
