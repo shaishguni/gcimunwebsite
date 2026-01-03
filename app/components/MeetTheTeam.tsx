@@ -7,34 +7,52 @@ import teamMembers from "./data";
 
 const MeetTheTeam: React.FC = () => {
   return (
-    <section className="relative overflow-hidden">
-      <div className="relative mx-auto max-w-6xl px-6 py-20 sm:px-8 mt-4 lg:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center md:text-left"
-        >
-          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.6em] text-slate-500">
-            Our Secretariat
-          </span>
-          <h2 className="mt-4 text-3xl font-bold text-slate-900 md:text-5xl">
-            Learn Today, Lead Tomorrow
-          </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-slate-600 md:ml-0 md:text-base">
-            The GCIMUN leadership collective pairs experience with creativity to guide every
-            committee, delegate, and initiative. Explore the team that plans each moment of
-            conference weekend with precision and purpose.
-          </p>
-        </motion.div>
+    <section className="relative overflow-hidden bg-slate-50">
+      
+      {/* HEADER WITH BACKGROUND IMAGE */}
+      <div className="relative w-full">
+        <div className="relative h-[480px] w-full overflow-hidden">
+          <Image
+            src="/assets/secretariat-bg.JPG" 
+            alt="GCIMUN Secretariat"
+            fill
+            priority
+            className="object-cover"
+          />
 
+          {/* DARKER OVERLAY: Increased opacity and used black for better contrast */}
+          <div className="absolute inset-0 bg-black/60" />
+
+          {/* Header text */}
+          <div className="relative z-10 flex h-full items-center justify-center pt-12">
+
+            <motion.h2
+
+              initial={{ opacity: 0, y: 24 }}
+
+              whileInView={{ opacity: 1, y: 0 }}
+
+              viewport={{ once: true }}
+
+              transition={{ duration: 0.6 }}
+
+              className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white"
+
+            > 
+              OUR TEAM
+            </motion.h2>
+          </div>
+        </div>
+      </div>
+
+      {/* TEAM GRID */}
+      <div className="relative mx-auto max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="mt-16 grid gap-10 lg:grid-cols-3"
+          transition={{ duration: 0.6 }}
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
           {teamMembers.map((member, index) => (
             <motion.article
@@ -43,43 +61,38 @@ const MeetTheTeam: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.55, delay: index * 0.05 }}
-              className="group relative overflow-hidden rounded-3xl bg-white/95 shadow-lg ring-1 ring-slate-200 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+              className="group relative flex flex-col items-center overflow-hidden rounded-3xl bg-white shadow-md ring-1 ring-slate-200 transition-all duration-300"
             >
-              <div
-                className={`pointer-events-none absolute inset-x-0 top-0 h-1 bg-linear-to-r ${member.gradient}`}
-              />
+              {/* Image Container */}
+              <div className="relative aspect-square w-full overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
 
-              <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[minmax(0,240px),1fr] lg:items-stretch">
-                <div className="relative overflow-hidden rounded-2xl">
-                  <div className="absolute inset-0 bg-slate-900/5" />
-                  <div
-                    className={`absolute inset-0 bg-linear-to-br ${member.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-25`}
-                  />
-                  <figure className="relative aspect-4/5 w-full">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      sizes="(min-width: 1024px) 240px, 100vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/55 via-slate-900/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                    <span className="absolute bottom-4 left-4 inline-flex items-center rounded-full bg-white/90 px-4 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-700 shadow-sm">
-                      {member.role}
-                    </span>
-                  </figure>
-                </div>
-
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-2xl font-semibold text-slate-900">
-                      {member.name}
-                    </h3>
-                    <p className="mt-4 text-sm leading-relaxed text-slate-600 md:text-base">
+                {/* Bio Hover Overlay: Grayish with Blur for readability */}
+                <div className="absolute inset-0 z-10 flex flex-col justify-end bg-slate-800/85 backdrop-blur-sm p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="max-h-full overflow-y-auto scrollbar-hide">
+                    <p className="text-sm leading-relaxed text-white font-medium">
                       {member.bio}
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Text Content */}
+              <div className="w-full p-6 text-center">
+                <h3 className="text-xl font-bold text-slate-900">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-slate-500">
+                  {member.role}
+                </p>
+                <div
+                  className={`mx-auto mt-4 h-1 w-12 rounded-full bg-gradient-to-r ${member.gradient}`}
+                />
               </div>
             </motion.article>
           ))}

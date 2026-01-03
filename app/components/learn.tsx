@@ -39,7 +39,7 @@ const LearnMore = () => {
   return (
     <section className={`${font.variable} py-16 px-4 `}>
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">Learn More</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-blue-700">LEARN MORE</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {links.map((item) => (
             <a
