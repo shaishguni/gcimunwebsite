@@ -5,14 +5,6 @@ const eb = EB_Garamond({
   weight: ["400"],
   variable: "--font-eb",
 });
-<<<<<<< HEAD
-const poppins = Poppins({
-    weight: ["400", "700"],
-    subsets: ["latin"],
-    variable: "--font-poppins",
-});
-=======
->>>>>>> f04eedab3a85d21aa13803df4154630a8e09dfa1
 
 export default function Letter() {
   return (

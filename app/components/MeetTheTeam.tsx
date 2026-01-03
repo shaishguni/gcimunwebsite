@@ -13,7 +13,7 @@ const MeetTheTeam: React.FC = () => {
       <div className="relative w-full">
         <div className="relative h-[480px] w-full overflow-hidden">
           <Image
-            src="/assets/secretariat-bg.JPG" 
+            src="/assets/secretariat-background.JPG" 
             alt="GCIMUN Secretariat"
             fill
             priority
@@ -36,7 +36,7 @@ const MeetTheTeam: React.FC = () => {
 
               transition={{ duration: 0.6 }}
 
-              className="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white"
+              className="text-3xl md:text-5xl font-semibold uppercase tracking-[0.6em] text-white"
 
             > 
               OUR TEAM
