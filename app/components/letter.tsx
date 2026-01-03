@@ -5,9 +5,12 @@ const eb = EB_Garamond({
   weight: ["400"],
   variable: "--font-eb",
 });
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> eaafc9780f24cc17f434f244f10c8f16235fc82b
 
 export default function Letter() {
   return (
