@@ -1,26 +1,16 @@
+import React from "react";
 
-import { Poppins } from "next/font/google";
-
-const font = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-geist-sans",
-});
-
-export default function RootLayout({
+export default function SecretariatLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  // We remove <html>, <body>, and the font import here 
+  // because they are already provided by the Root Layout.
   return (
-    <html  suppressHydrationWarning lang="en" className="scroll-smooth">
-      <body className={`${font.variable} antialiased`}>
-
-        <main className="min-h-screen  ">
-          {children}
-        </main>
-
-      </body>
-    </html>
+    <div className="flex flex-col w-full">
+      {/* If you want a specific sidebar for secretariat, it goes here */}
+      {children}
+    </div>
   );
 }

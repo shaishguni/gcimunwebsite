@@ -3,18 +3,17 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-// import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [isAboutOpen, setIsAboutOpen] = useState(false);
 
     useEffect(() => {
-        if (!mounted) return;
-
+        setMounted(true);
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
         };
@@ -22,14 +21,21 @@ const Navbar = () => {
         handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [mounted]);
+    }, []);
 
     const navLinks = [
         { name: "Home", href: "/" },
+        { 
+            name: "About", 
+            href: "#", 
+            dropdown: [
+                { name: "About GCI MUN", href: "/about" },
+                { name: "Secretariat", href: "/secretariat" }
+            ] 
+        },
         { name: "Committees", href: "/committees" },
-        { name: "Secretariat", href: "/secretariat" },
-        { name: "Schedule", href: "/schedule" },
-        { name: "Sponsors", href: "/#sponsors" },
+        { name: "Resources", href: "/schedule" }, // Renamed from Schedule
+        { name: "Contact", href: "/contact" },    // Renamed from Sponsors
     ];
 
     return (
@@ -37,7 +43,7 @@ const Navbar = () => {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`fixed top-0 right-0 left-0 bg-white  w-full z-50 transition-all duration-500 ${
+            className={`fixed top-0 right-0 left-0 bg-white w-full z-50 transition-all duration-500 ${
                 mounted && scrolled 
                     ? 'backdrop-blur-xl shadow-lg border-b' 
                     : 'dark:shadow-lg'
@@ -52,7 +58,7 @@ const Navbar = () => {
                         className="shrink-0"
                     >
                         <Link href="/" className="flex items-center gap-2 group">
-                            <div className="relative w-24 h-12 rounded-lg flex items-center justify-center transition-colors duration-200">
+                            <div className="relative w-24 h-12 rounded-lg flex items-center justify-center">
                                 <Image
                                     src="/assets/logo.png"
                                     alt="GCI MUN Conference"
@@ -64,9 +70,46 @@ const Navbar = () => {
                         </Link>
                     </motion.div>
 
-                    <nav className="hidden lg:flex ml-96 items-center gap-1">
+                    {/* DESKTOP NAV */}
+                    <nav className="hidden lg:flex items-center gap-2">
                         {navLinks.map((item, index) => {
-                           
+                            if (item.dropdown) {
+                                return (
+                                    <div 
+                                        key={item.name}
+                                        className="relative"
+                                        onMouseEnter={() => setIsAboutOpen(true)}
+                                        onMouseLeave={() => setIsAboutOpen(false)}
+                                    >
+                                        <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg text-gray-700 hover:text-indigo-400 transition-all">
+                                            {item.name}
+                                            <ChevronDown className={`w-4 h-4 transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
+                                        </button>
+                                        
+                                        <AnimatePresence>
+                                            {isAboutOpen && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: 10 }}
+                                                    className="absolute left-0 mt-1 w-48 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden py-2"
+                                                >
+                                                    {item.dropdown.map((subItem) => (
+                                                        <Link
+                                                            key={subItem.name}
+                                                            href={subItem.href}
+                                                            className="block px-4 py-2 text-sm text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors"
+                                                        >
+                                                            {subItem.name}
+                                                        </Link>
+                                                    ))}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                );
+                            }
+
                             return (
                                 <motion.div
                                     key={item.name}
@@ -76,7 +119,7 @@ const Navbar = () => {
                                 >
                                     <Link 
                                         href={item.href}
-                                        className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-gray-700 dark:text-gray-300 hover:text-indigo-400`}
+                                        className="px-4 py-2 text-sm font-medium rounded-lg text-gray-700 hover:text-indigo-400 transition-all"
                                     >
                                        {item.name}
                                     </Link>
@@ -86,51 +129,54 @@ const Navbar = () => {
                     </nav>
 
                     <motion.button
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
                         type="button"
-                        className="lg:hidden p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        className="lg:hidden p-2 rounded-xl hover:bg-gray-100 transition-colors"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
-                        <span className="sr-only">Toggle menu</span>
-                        {mobileMenuOpen ? (
-                            <X className="h-6 w-6 text-gray-700 dark:text-gray-300" />
-                        ) : (
-                            <Menu className="h-6 w-6 text-gray-700 dark:text-gray-300" />
-                        )}
+                        {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                     </motion.button>
                 </div>
             </div>
 
+            {/* MOBILE NAV */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div 
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="lg:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-800"
+                        className="lg:hidden bg-white border-t border-gray-100"
                     >
-                        <div className="px-4 py-6 space-y-4">
-                            <div className="space-y-2">
-                                {navLinks.map((item, index) => (
-                                    <motion.div
-                                        key={item.name}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ duration: 0.2, delay: index * 0.05 }}
-                                    >
+                        <div className="px-4 py-6 space-y-2">
+                            {navLinks.map((item) => (
+                                <div key={item.name}>
+                                    {item.dropdown ? (
+                                        <div className="space-y-1">
+                                            <div className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                                                {item.name}
+                                            </div>
+                                            {item.dropdown.map((sub) => (
+                                                <Link
+                                                    key={sub.name}
+                                                    href={sub.href}
+                                                    className="block px-8 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-indigo-50"
+                                                    onClick={() => setMobileMenuOpen(false)}
+                                                >
+                                                    {sub.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    ) : (
                                         <Link
                                             href={item.href}
-                                            className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800`}
+                                            className="block px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50"
                                             onClick={() => setMobileMenuOpen(false)}
                                         >
                                             {item.name}
                                         </Link>
-                                    </motion.div>
-                                ))}
-                            </div>
+                                    )}
+                                </div>
+                            ))}
                         </div>
                     </motion.div>
                 )}
