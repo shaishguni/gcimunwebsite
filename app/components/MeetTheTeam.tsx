@@ -9,44 +9,24 @@ const MeetTheTeam: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-slate-50">
       
-      {/* HEADER WITH BACKGROUND IMAGE */}
-      <div className="relative w-full">
-        <div className="relative h-[480px] w-full overflow-hidden">
-          <Image
-            src="/assets/secretariat-background.JPG" 
-            alt="GCIMUN Secretariat"
-            fill
-            priority
-            className="object-cover"
-          />
-
-          {/* DARKER OVERLAY: Increased opacity and used black for better contrast */}
-          <div className="absolute inset-0 bg-black/60" />
-
-          {/* Header text */}
-          <div className="relative z-10 flex h-full items-center justify-center pt-12">
-
-            <motion.h2
-
-              initial={{ opacity: 0, y: 24 }}
-
-              whileInView={{ opacity: 1, y: 0 }}
-
-              viewport={{ once: true }}
-
-              transition={{ duration: 0.6 }}
-
-              className="text-3xl md:text-5xl font-semibold uppercase tracking-[0.6em] text-white"
-
-            > 
-              OUR TEAM
-            </motion.h2>
-          </div>
-        </div>
+      {/* HEADER SECTION (Background Image Removed) */}
+      <div className="relative z-10 flex flex-col items-center justify-center pt-40 pb-10 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          // Changed text-white to text-slate-900 for visibility on light bg
+          className="text-3xl md:text-5xl font-semibold uppercase tracking-[0.3em] text-slate-900"
+        > 
+          OUR TEAM
+        </motion.h2>
+        
+  
       </div>
 
       {/* TEAM GRID */}
-      <div className="relative mx-auto max-w-6xl px-6 py-20 sm:px-8 lg:px-10">
+      <div className="relative mx-auto max-w-6xl px-6 py-12 sm:px-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -72,7 +52,7 @@ const MeetTheTeam: React.FC = () => {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
-                {/* Bio Hover Overlay: Grayish with Blur for readability */}
+                {/* Bio Hover Overlay */}
                 <div className="absolute inset-0 z-10 flex flex-col justify-end bg-slate-800/85 backdrop-blur-sm p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="max-h-full overflow-y-auto scrollbar-hide">
                     <p className="text-sm leading-relaxed text-white font-medium">
