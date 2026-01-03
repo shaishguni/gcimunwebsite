@@ -11,8 +11,6 @@ const poppins = Poppins({
     variable: "--font-poppins",
 });
 
-
-
 export default function Letter() {
     return (
         <section className={`${eb.variable} ${poppins.variable} max-w-3xl mx-auto px-4 sm:px-6 md:px-12 py-8 sm:py-12 text-slate-500`}>
