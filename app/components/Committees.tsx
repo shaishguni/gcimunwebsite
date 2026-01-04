@@ -19,7 +19,7 @@ const Committees = () => {
           className="text-center"
         >
           {/* Consistent uppercase and tracking with Team section */}
-          <h2 className="text-3xl md:text-5xl font-semibold uppercase tracking-[0.3em] text-slate-900">
+          <h2 className="text-3xl md:text-5xl font-semibold uppercase tracking-[0.1em] text-slate-900">
             OUR COMMITTEES
           </h2>
 

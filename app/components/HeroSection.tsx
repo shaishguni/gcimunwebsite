@@ -43,9 +43,9 @@ export default function MinimalHero() {
           </span>
         </h1>
 
-        <div className="mt-10 sm:mt-16">
-          <p className="text-1xl sm:text-3xl md:text-4xl text-white/90 font-light tracking-wider">
-            19 – 21 February 2026
+        <div className=" ">
+          <p className="text-1xl sm:text-3xl md:text-4xl text-white/90 font-light tracking-wider font-medium">
+            February 19th - 22nd
           </p>
         </div>
       </div>

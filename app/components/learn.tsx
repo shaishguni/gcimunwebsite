@@ -55,7 +55,7 @@ const LearnMore = () => {
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors flex items-center justify-center font-medium">
                   <h3 className={`text-white text-3xl ${font.className}`}>{item.title}</h3>
                 </div>
               </div>

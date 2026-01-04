@@ -10,7 +10,10 @@ const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [mounted, setMounted] = useState(false);
+    
+    // Independent states for dropdowns
     const [isAboutOpen, setIsAboutOpen] = useState(false);
+    const [isConferenceOpen, setIsConferenceOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -28,14 +31,25 @@ const Navbar = () => {
         { 
             name: "About", 
             href: "#", 
+            isOpen: isAboutOpen,
+            setOpen: setIsAboutOpen,
             dropdown: [
                 { name: "About GCI MUN", href: "/about" },
                 { name: "Secretariat", href: "/secretariat" }
             ] 
         },
-        { name: "Committees", href: "/committees" },
-        { name: "Resources", href: "/schedule" }, // Renamed from Schedule
-        { name: "Contact", href: "/contact" },    // Renamed from Sponsors
+        { 
+            name: "Conference", 
+            href: "#", 
+            isOpen: isConferenceOpen,
+            setOpen: setIsConferenceOpen,
+            dropdown: [
+                { name: "Committees", href: "/committees" },
+                { name: "Resources", href: "/schedule" }
+            ] 
+        },
+        { name: "Registration", href: "/registration" }, 
+        { name: "Contact", href: "/contact" },
     ];
 
     return (
@@ -78,16 +92,16 @@ const Navbar = () => {
                                     <div 
                                         key={item.name}
                                         className="relative"
-                                        onMouseEnter={() => setIsAboutOpen(true)}
-                                        onMouseLeave={() => setIsAboutOpen(false)}
+                                        onMouseEnter={() => item.setOpen?.(true)}
+                                        onMouseLeave={() => item.setOpen?.(false)}
                                     >
                                         <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg text-gray-700 hover:text-indigo-400 transition-all">
                                             {item.name}
-                                            <ChevronDown className={`w-4 h-4 transition-transform ${isAboutOpen ? 'rotate-180' : ''}`} />
+                                            <ChevronDown className={`w-4 h-4 transition-transform ${item.isOpen ? 'rotate-180' : ''}`} />
                                         </button>
                                         
                                         <AnimatePresence>
-                                            {isAboutOpen && (
+                                            {item.isOpen && (
                                                 <motion.div
                                                     initial={{ opacity: 0, y: 10 }}
                                                     animate={{ opacity: 1, y: 0 }}
@@ -145,7 +159,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="lg:hidden bg-white border-t border-gray-100"
+                        className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
                     >
                         <div className="px-4 py-6 space-y-2">
                             {navLinks.map((item) => (

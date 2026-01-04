@@ -9,23 +9,21 @@ const MeetTheTeam: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-slate-50">
       
-      {/* HEADER SECTION (Background Image Removed) */}
+      {/* HEADER SECTION */}
       <div className="relative z-10 flex flex-col items-center justify-center pt-40 pb-10 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          // Changed text-white to text-slate-900 for visibility on light bg
-          className="text-3xl md:text-5xl font-semibold uppercase tracking-[0.3em] text-slate-900"
+          className="text-3xl md:text-5xl font-semibold uppercase tracking-[0.1em] text-slate-900"
         > 
           OUR TEAM
         </motion.h2>
-        
-  
       </div>
-
+      
       {/* TEAM GRID */}
+      
       <div className="relative mx-auto max-w-6xl px-6 py-12 sm:px-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0 }}
@@ -41,7 +39,7 @@ const MeetTheTeam: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.55, delay: index * 0.05 }}
-              className="group relative flex flex-col items-center overflow-hidden rounded-3xl bg-white shadow-md ring-1 ring-slate-200 transition-all duration-300"
+              className="group relative flex flex-col items-center overflow-hidden rounded-5xl bg-white shadow-md ring-1 ring-slate-200 transition-all duration-300"
             >
               {/* Image Container */}
               <div className="relative aspect-square w-full overflow-hidden">
@@ -51,6 +49,9 @@ const MeetTheTeam: React.FC = () => {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+
+                {/* BLUE GRADIENT OVERLAY (Added this part) */}
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-blue-500/60 to-transparent pointer-events-none" />
 
                 {/* Bio Hover Overlay */}
                 <div className="absolute inset-0 z-10 flex flex-col justify-end bg-slate-800/85 backdrop-blur-sm p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -70,9 +71,6 @@ const MeetTheTeam: React.FC = () => {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-slate-500">
                   {member.role}
                 </p>
-                <div
-                  className={`mx-auto mt-4 h-1 w-12 rounded-full bg-gradient-to-r ${member.gradient}`}
-                />
               </div>
             </motion.article>
           ))}
